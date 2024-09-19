@@ -53,7 +53,7 @@ function TodoListCard() {
         <React.Fragment>
             <AddItemForm onNewItem={onNewItem} />
             {items.length === 0 && (
-                <p className="text-center">No items yet! Add one above!</p>
+                <p className="text-center">You Have no items yet! Add one above!</p>
             )}
             {items.map(item => (
                 <ItemDisplay
@@ -114,7 +114,7 @@ function AddItemForm({ onNewItem }) {
     );
 }
 
-function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
+function ItemDisplay({ item, onItemUpdate, onItemRemoval, customProp }) {
     const { Container, Row, Col, Button } = ReactBootstrap;
 
     const toggleCompletion = () => {
@@ -171,9 +171,43 @@ function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
                         <i className="fa fa-trash text-danger" />
                     </Button>
                 </Col>
+                
             </Row>
         </Container>
     );
+}
+
+const ProductDetail = () => {
+    return (
+        <center style={{ border: "3px solid black" }}>
+            <div style={{ border: "2px solid blue", margin: "2px", padding: "2px" }}>
+                <table style={{ border: "1px solid red" }}>
+                    <tr >
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Surname
+                        </th>
+                        <th>
+                            Age
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Andres
+                        </td>
+                        <td>
+                            Raso
+                        </td>
+                        <td>
+                            34
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </center>
+    )
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
